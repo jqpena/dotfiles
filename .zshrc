@@ -106,6 +106,9 @@ bindkey -e
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 
+# Insert commands with key binding
+bindkey -s '^xgm' 'gcmsg ""\C-b'
+
 # History options
 HISTSIZE=5000
 HISTFILE=~/.zsh_history

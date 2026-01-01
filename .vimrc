@@ -1,12 +1,13 @@
 set t_Co=256
 
-colorscheme desert
+colorscheme slate
 
 syntax enable
 
 set relativenumber
 set autoindent
-set tabstop=2
+set tabstop=4
+set shiftwidth=4
 set smartindent
 set virtualedit=all
 
