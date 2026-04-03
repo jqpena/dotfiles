@@ -14,6 +14,8 @@ setopt hist_find_no_dups
 
 source "$HOME/.zprofile"
 
+# Source uv completions
+[[ -f "$XDG_DATA_HOME/uv/env" ]] || source "$XDG_DATA_HOME/uv/env"
 # Create config folder for programs that
 # desn't create its folder if not exists
 [[ -d "$XDG_DATA_HOME/psql" ]] || mkdir -p "$XDG_DATA_HOME/psql"
@@ -37,13 +39,6 @@ fi
 
 source "$ZINIT_HOME/zinit.zsh"
 
-# Instanll pyenv python manager
-# use github recomended installtion that alredy ships 3 prluing
-# virtualenv, update, doctor
-[[ ! -f "$PYENV_ROOT/bin/pyenv" ]] && { curl -sSLf https://pyenv.run | bash } 2>&1 1>/dev/null
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
 # Powerlevel10k theme instalation
 zinit ice silent depth=1; zinit light romkatv/powerlevel10k
 
@@ -61,7 +56,7 @@ zinit wait'1' lucid light-mode as"null" nocompile \
     junegunn/fzf \
   from"gh" \
   depth=1 \
-  mv"bin/fzf* -> $ZPFX/bin" \
+  mv"./bin/fzf* -> $ZPFX/bin" \
   id-as"fzf-scripts" \
     junegunn/fzf
 
@@ -71,14 +66,6 @@ zinit wait'2' lucid light-mode as'null' \
   atload'eval "$(fnm env --use-on-cd --shell zsh)"' \
   from"gh-r" for \
     Schniz/fnm
-
-# Install pnpm Node package manager
-zinit wait'3' lucid light-mode as'null' \
-  from'gh-r' \
-  atload'pnpm completion zsh > _pnpm; source _pnpm' \
-  blockf \
-  mv"pnpm* -> $ZPFX/bin/pnpm" for \
-    pnpm/pnpm
 
 # Three most commont zsh zinit plugins
 zinit wait lucid light-mode for \
@@ -119,8 +106,8 @@ HISTDUP=erase
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors  '${(s.:.)LS_COLORS}'
 zstyle ':completion:*' menu no
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color=always $realpath'
-zstyle ':fzf-tab:complete:systemctl-*:*' fzf-preview 'SYSTEMD_COLORS=1 systemctl status $word'
+# zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color=always $realpath'
+# zstyle ':fzf-tab:complete:systemctl-*:*' fzf-preview 'SYSTEMD_COLORS=1 systemctl status $word'
 
 # For built-in programs
 alias ll='ls -alFh'
@@ -139,3 +126,7 @@ alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+
+. "$HOME/.cache/../bin/env"
+
+. "$HOME/.cache/uv/env"

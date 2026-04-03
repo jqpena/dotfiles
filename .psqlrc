@@ -40,8 +40,6 @@
 
 \timing
 
-\set QUIET OFF
-
 -- Custom quieries that can be invoke preceding the name with a colon
 -- :uptime
 
@@ -50,3 +48,4 @@
 \echo 'Custon queries'
 \echo '\t:uptime\t-\tServer Uptime'
 
+\set QUIET OFF
