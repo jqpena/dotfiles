@@ -15,13 +15,13 @@ setopt hist_find_no_dups
 source "$HOME/.zprofile"
 
 # Source uv completions
-[[ -f "$XDG_DATA_HOME/uv/env" ]] || source "$XDG_DATA_HOME/uv/env"
+[[ -f "$XDG_CACHE_HOME/uv/env" ]] && source "$XDG_DATA_HOME/uv/env"
 # Create config folder for programs that
 # desn't create its folder if not exists
-[[ -d "$XDG_DATA_HOME/psql" ]] || mkdir -p "$XDG_DATA_HOME/psql"
+[[ -d "$XDG_CACHE_HOME/psql" ]] || mkdir -p "$XDG_DATA_HOME/psql"
 
 # Change compinit dumpfiles location
-export ZSH_COMPDUMP="$XDG_DATA_HOME/zsh/zcompdump"
+export ZSH_COMPDUMP="$XDG_CACHE_HOME/zsh/zcompdump"
 [[ -d "$ZSH_COMPDUMP" ]] || mkdir -p "$ZSH_COMPDUMP"
 
 # Set the GPG TTY to be the same as the current one
@@ -127,6 +127,4 @@ alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 
-. "$HOME/.cache/../bin/env"
-
-. "$HOME/.cache/uv/env"
+. "$HOME/.local/share/../bin/env"
