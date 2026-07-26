@@ -9,7 +9,7 @@ alias k="kubctl"
 alias h="helm"
 
 # TODO: move to nvim in the future learn about it
-export EDITOR="vim"
+export EDITOR="nvim"
 export SHELL="zsh"
 
 # If you come from bash you might have to change your $PATH.
