@@ -7,6 +7,10 @@ alias c="clear"
 alias ls="ls --color=auto"
 alias k="kubctl"
 alias h="helm"
+alias vi="vim"
+alias vim="nvim"
+alias old-grep="grep"
+alias grep="rgrep"
 
 # TODO: move to nvim in the future learn about it
 export EDITOR="nvim"

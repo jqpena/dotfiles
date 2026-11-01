@@ -56,7 +56,7 @@ zinit wait'1' lucid light-mode as"null" nocompile \
     junegunn/fzf \
   from"gh" \
   depth=1 \
-  mv"./bin/fzf* -> $ZPFX/bin" \
+  mv"bin/fzf* -> $ZPFX/bin" \
   id-as"fzf-scripts" \
     junegunn/fzf
 
